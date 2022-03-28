@@ -20,11 +20,8 @@ searches the array for (target-arr[i]) in the array
  This approach reduces the complexity to O(n)
 
 */
-#include<bits/stdc++.h> 
-#ifndef twosum.h 
-#define twosum.h 
 
-using namespace std; 
+
 vector<int> twoSum(vector<int>& nums,int target)
 {
     unordered_set<int> s; 
