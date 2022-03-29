@@ -10,24 +10,28 @@ using namespace std;
 
 void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     vector<int> temparray; 
-    for(int i=0,j=0;i+j!=m+n;){
-        if(i==m){
-            temparray.push_back(nums2[j]);
-            j++; 
+     int i = 0, j = 0;
+ 
+    while (i<m && j <n)
+    {
+        // Check if current element of first
+        // array is smaller than current element
+        // of second array. If yes, store first
+        // array element and increment first array
+        // index. Otherwise do same with second array
+        if (nums1[i] < nums2[j])
+            temparray.push_back(nums1[i++]); 
+        else
+            temparray.push_back(nums2[j++]); 
         }
-        if(j==n){
-            temparray.push_back(nums1[i]);
-            i++;
-        }
-        if(nums1[i]<=nums2[j]){
-            temparray.push_back(nums1[i]); 
-            i++; 
-        }
-        else {
-            temparray.push_back(nums2[j]);
-            j++; 
-        }
-    }
+ 
+    // Store remaining elements of first array
+    while (i < m)
+        temparray.push_back(nums1[i++]); 
+ 
+    // Store remaining elements of second array
+    while (j < n)
+        temparray.push_back(nums2[j++]); 
     // copy the data into the original array 
     for(int x=0;x<m+n;x++){
         nums1[x]=temparray[x];
